@@ -78,5 +78,6 @@ It uses `from datetime import datetime` from the standard library for the report
 
 ### P2 Screenshot
 
-Pending: capture an actual program run showing the name, report timestamp, average, highest grade, lowest grade, and pass/fail result.
-Save the screenshot in `set1/p2/screenshots/`; it will be displayed here once supplied.
+The screenshot shows the student's name, report timestamp, and the results for grades **80** and **99**.
+
+![P2 grade report showing the student's name, timestamp, average, highest grade, lowest grade, and pass/fail status](set1/p2/screenshots/P2_screenshot.png)
