@@ -110,6 +110,15 @@ The list/set explanation is in the five-sentence comment at the bottom of [p3_re
 
 ### P3 Screenshots
 
-Pending: capture actual runs showing **add**, **duplicate prevention**, **search**, **remove**, and **display**.
-For example, add `Juan Cruz`, try adding `juan cruz`, add `Ana Reyes` and `Maria Santos`, search for `cruz`, display all students, and remove `Juan Cruz`.
-Keep the author's name visible in each screenshot. Save the screenshots in `set1/p3/screenshots/`; they will be linked and displayed here once supplied.
+The five screenshots show adding a student, rejecting a duplicate, searching for a student, removing a student, and displaying all students. The author's name is visible in each screenshot.
+
+The display shows three students in alphabetical order, numbered, with the total count:
+
+![P3 displaying students alphabetically with numbering, total count, and the author's name](set1/p3/screenshots/P3_display_name.png)
+
+Additional screenshots:
+
+- [Adding a student](set1/p3/screenshots/P3_added.png)
+- [Preventing a duplicate entry](set1/p3/screenshots/P3_duplicate_prevention.png)
+- [Searching for a student by full name](set1/p3/screenshots/P3_search.png)
+- [Removing a student](set1/p3/screenshots/P3_removed.png)
