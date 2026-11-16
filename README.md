@@ -152,13 +152,13 @@ The program catches `ValueError`, `ZeroDivisionError`, and `FileNotFoundError`, 
 
 ### P4 Screenshots
 
-Pending: capture actual runs showing the four required error cases, with the author's name visible:
+The four screenshots show the required error cases and the program returning to the menu. The author's name is visible in each screenshot.
 
-| Error case | Example inputs, entered one at a time |
-| --- | --- |
-| Invalid number | Choose `1`, then enter `abc`. |
-| Division by zero | Choose `1`, then enter `10` and `0`. |
-| Missing file | Choose `2`, then enter `missing_p4_file.txt` (a file that does not exist). |
-| Invalid menu choice | Enter `9` at the menu. |
+| Error case | Example inputs, entered one at a time | Screenshot |
+| --- | --- | --- |
+| Invalid number | Choose `1`, then enter `abc`. | [Invalid numeric input](set1/p4/screenshots/P4_invalid_input.png) |
+| Division by zero | Choose `1`, then enter `10` and `0`. | [Division by zero](set1/p4/screenshots/P4_cannot_divide_zero.png) |
+| Missing file | Choose `2`, then enter `missing_p4_file.text` (a file that does not exist). | [Missing file](set1/p4/screenshots/P4_missing_file.png) |
+| Invalid menu choice | Enter `9` at the menu. | [Invalid menu choice](set1/p4/screenshots/P4_invalid_choice.png) |
 
-Save the screenshots in `set1/p4/screenshots/`; they will be linked and displayed here once supplied.
+![P4 handling division by zero and showing the menu again, with the author's name visible](set1/p4/screenshots/P4_cannot_divide_zero.png)
