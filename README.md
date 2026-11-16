@@ -11,6 +11,7 @@
 | P1 - Student Grade Calculator | A menu-driven program that validates grades and uses functions to return the average, highest grade, lowest grade, and pass/fail status. | [set1/p1](set1/p1/) |
 | P2 - Custom Module: student_utils | A grade report that imports four reusable functions from a custom module, demonstrates two import styles, and uses datetime to show when the report was generated. | [set1/p2](set1/p2/) |
 | P3 - Student Record Manager | A menu-driven name manager that uses a list and set to prevent duplicates, search partial names, remove students, and display numbered names alphabetically with a total count. | [set1/p3](set1/p3/) |
+| P4 - Safe Menu Program | A menu-driven program that uses try, except, else, and finally to handle invalid numbers, division by zero, and file-opening errors. | [set1/p4](set1/p4/) |
 
 ## How to Run P1
 
@@ -122,3 +123,42 @@ Additional screenshots:
 - [Preventing a duplicate entry](set1/p3/screenshots/P3_duplicate_prevention.png)
 - [Searching for a student by full name](set1/p3/screenshots/P3_search.png)
 - [Removing a student](set1/p3/screenshots/P3_removed.png)
+
+## How to Run P4
+
+From the repository's root folder, run:
+
+```sh
+python set1/p4/p4_exceptions.py
+```
+
+For the Python installation on this computer, use this PowerShell command:
+
+```powershell
+& "$env:LOCALAPPDATA\Python\pythoncore-3.14-64\python.exe" .\set1\p4\p4_exceptions.py
+```
+
+| Menu option | Action |
+| --- | --- |
+| 1 - Divide two numbers | Enter two numbers. Invalid numeric input and division by zero show an error message. |
+| 2 - Open a text file | Enter a file name or path. The contents are displayed if the file can be read. |
+| 3 - Exit | End the program. |
+
+The menu returns after each operation or invalid selection.
+When running from the repository root, enter `README.md` in option 2 to try reading an existing text file.
+
+In [p4_exceptions.py](set1/p4/p4_exceptions.py), `try` attempts an operation, `except` handles its errors, `else` displays the successful result, and `finally` prints a completion message whether the operation succeeded or failed.
+The program catches `ValueError`, `ZeroDivisionError`, and `FileNotFoundError`, along with other file-opening and text-decoding errors.
+
+### P4 Screenshots
+
+Pending: capture actual runs showing the four required error cases, with the author's name visible:
+
+| Error case | Example inputs, entered one at a time |
+| --- | --- |
+| Invalid number | Choose `1`, then enter `abc`. |
+| Division by zero | Choose `1`, then enter `10` and `0`. |
+| Missing file | Choose `2`, then enter `missing_p4_file.txt` (a file that does not exist). |
+| Invalid menu choice | Enter `9` at the menu. |
+
+Save the screenshots in `set1/p4/screenshots/`; they will be linked and displayed here once supplied.
