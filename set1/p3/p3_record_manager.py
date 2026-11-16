@@ -74,6 +74,42 @@ def display_students(students):
     print(f"Total students: {len(students)}")
 
 
+def main():
+    students = []
+    student_names = set()
+
+    print("P3 - Student Record Manager")
+
+    while True:
+        # Keep the author's name visible when taking screenshots of each operation.
+        print("\nJit Lee S. Romero | IV-BSIT C | P3")
+        print("1. Add student")
+        print("2. Remove student")
+        print("3. Search students")
+        print("4. Display all students")
+        print("5. Exit")
+        choice = input("Choose an option: ").strip()
+
+        if choice == "1":
+            add_student(students, student_names)
+        elif choice == "2":
+            remove_student(students, student_names)
+        elif choice == "3":
+            search_students(students)
+        elif choice == "4":
+            print("\n--- Student Records ---")
+            display_students(students)
+        elif choice == "5":
+            print("Thank you for using the record manager!")
+            break
+        else:
+            print("Invalid choice. Please enter 1, 2, 3, 4, or 5.")
+
+
+if __name__ == "__main__":
+    main()
+
+
 # A list keeps items in order and can contain duplicates.
 # In this program, students is a list that stores names using the capitalization entered by the user.
 # A set stores unique values and does not guarantee an order.

@@ -10,6 +10,7 @@
 | --- | --- | --- |
 | P1 - Student Grade Calculator | A menu-driven program that validates grades and uses functions to return the average, highest grade, lowest grade, and pass/fail status. | [set1/p1](set1/p1/) |
 | P2 - Custom Module: student_utils | A grade report that imports four reusable functions from a custom module, demonstrates two import styles, and uses datetime to show when the report was generated. | [set1/p2](set1/p2/) |
+| P3 - Student Record Manager | A menu-driven name manager that uses a list and set to prevent duplicates, search partial names, remove students, and display numbered names alphabetically with a total count. | [set1/p3](set1/p3/) |
 
 ## How to Run P1
 
@@ -81,3 +82,34 @@ It uses `from datetime import datetime` from the standard library for the report
 The screenshot shows the student's name, report timestamp, and the results for grades **80** and **99**.
 
 ![P2 grade report showing the student's name, timestamp, average, highest grade, lowest grade, and pass/fail status](set1/p2/screenshots/P2_screenshot.png)
+
+## How to Run P3
+
+From the repository's root folder, run:
+
+```sh
+python set1/p3/p3_record_manager.py
+```
+
+For the Python installation on this computer, use this PowerShell command:
+
+```powershell
+& "$env:LOCALAPPDATA\Python\pythoncore-3.14-64\python.exe" .\set1\p3\p3_record_manager.py
+```
+
+| Menu option | Action |
+| --- | --- |
+| 1 - Add student | Enter a full name. A name already present is rejected even if its capitalization differs. |
+| 2 - Remove student | Enter the full name to remove. Matching ignores capitalization. |
+| 3 - Search students | Enter a full name or part of a name, such as `cruz` to find `Juan Cruz`. |
+| 4 - Display all students | Show the names alphabetically, numbered, with the total count. |
+| 5 - Exit | End the program. |
+
+Names are kept in memory for the current run. The list starts empty when the program is restarted.
+The list/set explanation is in the five-sentence comment at the bottom of [p3_record_manager.py](set1/p3/p3_record_manager.py).
+
+### P3 Screenshots
+
+Pending: capture actual runs showing **add**, **duplicate prevention**, **search**, **remove**, and **display**.
+For example, add `Juan Cruz`, try adding `juan cruz`, add `Ana Reyes` and `Maria Santos`, search for `cruz`, display all students, and remove `Juan Cruz`.
+Keep the author's name visible in each screenshot. Save the screenshots in `set1/p3/screenshots/`; they will be linked and displayed here once supplied.
