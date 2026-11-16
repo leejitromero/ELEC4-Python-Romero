@@ -1,0 +1,7 @@
+Full name: Jit Lee S. Romero
+Section: IV-BSIT C
+Course: ELEC 4 - Python Programming
+Set: 1
+
+GitHub repository: https://github.com/leejitromero/ELEC4-Python-Romero
+Merged pull request: https://github.com/leejitromero/ELEC4-Python-Romero/pull/1
