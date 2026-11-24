@@ -169,6 +169,7 @@ The four screenshots show the required error cases and the program returning to 
 | --- | --- | --- |
 | P5 - Student Information File System | A menu-driven student record system that loads, adds, displays, searches, and updates records stored in a text file. | [set2/p5](set2/p5/) |
 | P6 - Recursion Toolkit | Four recursive functions for factorial, Fibonacci, summation, and list search, with input validation and documented base cases. | [set2/p6](set2/p6/) |
+| P7 - Student Management System with Classes | Three related classes demonstrate student objects, private-average validation, updates, and a section roster linked to a subject. | [set2/p7](set2/p7/) |
 
 ## How to Run P5
 
@@ -242,3 +243,33 @@ All four computing functions use recursive calls without loops. Comments above e
 The screenshot shows the author's name and sample runs of all four functions:
 
 ![P6 factorial, Fibonacci and its first seven terms, recursive sum, and successful recursive search, with the author's name visible](set2/p6/screenshots/P6_ALL_FUNCTIONS.png)
+
+## How to Run P7
+
+From the repository root, run:
+
+```sh
+python set2/p7/p7_classes.py
+```
+
+On this Windows computer:
+
+```powershell
+py set2/p7/p7_classes.py
+```
+
+The demonstration runs automatically; no input is required.
+
+- `Student` stores the ID and name, displays information, and updates the name and average. Its private `__average` is read through `get_average()` and changed through `set_average()`, which accepts only numeric values from 0 to 100.
+- `Subject` stores the subject code and title.
+- `Section` holds a `Subject` object and a list of `Student` objects, then displays the section, subject, students, and total count.
+
+The program creates three students in **IV-BSIT C** for **ELEC4 - Python Programming**. It displays them before and after updating Jit Lee S. Romero's average from **80.00** to **92.00**. An attempted average of **110** is rejected, leaving the valid average unchanged. Juan Cruz remains at **85.00** and Maria Santos at **90.00**.
+
+The objects exist in memory for the demonstration and are recreated each time the program runs.
+
+### P7 Screenshot
+
+The screenshot shows the author's name, all three students before and after the update, their section and subject, the total count, and the rejected invalid average:
+
+![P7 displaying three student objects with their section and subject before and after an update, and rejecting an invalid average](set2/p7/screenshots/P7_OUTPUT.png)
