@@ -168,6 +168,7 @@ The four screenshots show the required error cases and the program returning to 
 | Activity | Description | Folder |
 | --- | --- | --- |
 | P5 - Student Information File System | A menu-driven student record system that loads, adds, displays, searches, and updates records stored in a text file. | [set2/p5](set2/p5/) |
+| P6 - Recursion Toolkit | Four recursive functions for factorial, Fibonacci, summation, and list search, with input validation and documented base cases. | [set2/p6](set2/p6/) |
 
 ## How to Run P5
 
@@ -207,3 +208,37 @@ Additional screenshots:
 - [Saved records](set2/p5/screenshots/P5_saved.png)
 - [Records after reopening the program](set2/p5/screenshots/P5_reopened.png)
 - [Search by student ID](set2/p5/screenshots/P5_search.png)
+
+## How to Run P6
+
+From the repository root, run:
+
+```sh
+python set2/p6/p6_recursion.py
+```
+
+On this Windows computer:
+
+```powershell
+py set2/p6/p6_recursion.py
+```
+
+| Menu option | Example inputs, entered one at a time | Result |
+| --- | --- | --- |
+| 1 - Factorial | Choose `1`, then enter `5`. | `Factorial of 5 = 120` |
+| 2 - Fibonacci | Choose `2`, then enter `7`. | `Fibonacci(7) = 13`, with the first seven terms `[0, 1, 1, 2, 3, 5, 8]`. |
+| 3 - Sum from 1 to n | Choose `3`, then enter `10`. | `Sum from 1 to 10 = 55` |
+| 4 - Recursive search | Choose `4`, enter `80,99,75`, then enter target `99`. | `Found: True` |
+| 5 - Exit | Choose `5`. | Close the toolkit. |
+
+Fibonacci uses `F(0) = 0` and `F(1) = 1`. Its first `n` terms start at `F(0)` and end at `F(n-1)`, so the separately displayed `F(7)` is not part of the first seven terms.
+
+The program accepts whole numbers from 0 to 100 for factorial and sum, and from 0 to 30 for Fibonacci. Search accepts up to 100 comma-separated text items and matches the target exactly, including capitalization. Invalid menu selections and numeric inputs show a message and allow another attempt.
+
+All four computing functions use recursive calls without loops. Comments above each function identify its base case and recursive call. The loop used to display Fibonacci terms is outside the recursive functions.
+
+### P6 Screenshot
+
+The screenshot shows the author's name and sample runs of all four functions:
+
+![P6 factorial, Fibonacci and its first seven terms, recursive sum, and successful recursive search, with the author's name visible](set2/p6/screenshots/P6_ALL_FUNCTIONS.png)
