@@ -162,3 +162,48 @@ The four screenshots show the required error cases and the program returning to 
 | Invalid menu choice | Enter `9` at the menu. | [Invalid menu choice](set1/p4/screenshots/P4_invalid_choice.png) |
 
 ![P4 handling division by zero and showing the menu again, with the author's name visible](set1/p4/screenshots/P4_cannot_divide_zero.png)
+
+## Set 2 Activities
+
+| Activity | Description | Folder |
+| --- | --- | --- |
+| P5 - Student Information File System | A menu-driven student record system that loads, adds, displays, searches, and updates records stored in a text file. | [set2/p5](set2/p5/) |
+
+## How to Run P5
+
+From the repository root, run:
+
+```sh
+python set2/p5/p5_file_system.py
+```
+
+On this Windows computer, the short command is:
+
+```powershell
+py set2/p5/p5_file_system.py
+```
+
+| Menu option | Action |
+| --- | --- |
+| 1 - Add and save a student | Enter a unique student ID, full name, course/section, and a numeric average from 0 to 100. The record is appended to the file. |
+| 2 - Display all students | Display every record with the total count. |
+| 3 - Search by student ID | Find a student using the complete ID; matching ignores capitalization. |
+| 4 - Update a student | Enter the student ID, then the new name, section, and average. Press Enter to keep a value. The ID stays unchanged, and the update is saved immediately. |
+| 5 - Save all records | Rewrite the file with all current records. |
+| 6 - Exit | Close the program. Saved records remain available on the next run. |
+
+[students.txt](set2/p5/students.txt) is stored beside the Python source file, regardless of the terminal's working folder. Each line contains `student ID|full name|course/section|general average`. The file currently contains five sample records.
+
+The program starts with an empty list when the file does not exist. It rejects blank fields, the `|` separator inside a field, duplicate IDs, and invalid averages. A damaged or unreadable file is reported without being silently replaced. File reading, appending, and rewriting all use `with open(...)`.
+
+### P5 Screenshots
+
+The sample run searches for `2026-001`, then changes the average from **91.00** to **92.00** while retaining the name and section.
+
+![P5 updating a student's average from 91.00 to 92.00 and confirming that it was saved](set2/p5/screenshots/P5_update.png)
+
+Additional screenshots:
+
+- [Saved records](set2/p5/screenshots/P5_saved.png)
+- [Records after reopening the program](set2/p5/screenshots/P5_reopened.png)
+- [Search by student ID](set2/p5/screenshots/P5_search.png)
