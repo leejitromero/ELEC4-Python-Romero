@@ -28,6 +28,33 @@ class Student:
         print(f"{self.student_id} | {self.full_name} | Average: {self.get_average():.2f}")
 
 
+class Subject:
+    def __init__(self, code, title):
+        self.code = code
+        self.title = title
+
+    def display(self):
+        print(f"Subject: {self.code} - {self.title}")
+
+
+class Section:
+    def __init__(self, name, subject):
+        # May isang Subject at listahan ng Student objects ang Section.
+        self.name = name
+        self.subject = subject
+        self.students = []
+
+    def add_student(self, student):
+        self.students.append(student)
+
+    def display_students(self):
+        print(f"Section: {self.name}")
+        self.subject.display()
+        for student in self.students:
+            student.display()
+        print(f"Total students: {len(self.students)}")
+
+
 def main():
     print("P7 - Student Management System with Classes")
     print("Jit Lee S. Romero | IV-BSIT C")
@@ -39,9 +66,13 @@ def main():
         Student("2026-003", "Maria Santos", 90),
     ]
 
-    print("\nBefore update:")
+    subject = Subject("ELEC4", "Python Programming")
+    section = Section("IV-BSIT C", subject)
     for student in students:
-        student.display()
+        section.add_student(student)
+
+    print("\nBefore update:")
+    section.display_students()
 
     students[0].update_information("Jit Lee S. Romero", 92)
     try:
@@ -50,8 +81,7 @@ def main():
         print(f"\nRejected invalid average: {error}")
 
     print("\nAfter update:")
-    for student in students:
-        student.display()
+    section.display_students()
 
 
 if __name__ == "__main__":
