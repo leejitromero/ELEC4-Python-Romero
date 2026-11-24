@@ -170,6 +170,7 @@ The four screenshots show the required error cases and the program returning to 
 | P5 - Student Information File System | A menu-driven student record system that loads, adds, displays, searches, and updates records stored in a text file. | [set2/p5](set2/p5/) |
 | P6 - Recursion Toolkit | Four recursive functions for factorial, Fibonacci, summation, and list search, with input validation and documented base cases. | [set2/p6](set2/p6/) |
 | P7 - Student Management System with Classes | Three related classes demonstrate student objects, private-average validation, updates, and a section roster linked to a subject. | [set2/p7](set2/p7/) |
+| P8 - Inheritance and Polymorphism | Person, Student, and Teacher demonstrate inheritance, parent initialization, method overriding, and polymorphism through one list. | [set2/p8](set2/p8/) |
 
 ## How to Run P5
 
@@ -273,3 +274,38 @@ The objects exist in memory for the demonstration and are recreated each time th
 The screenshot shows the author's name, all three students before and after the update, their section and subject, the total count, and the rejected invalid average:
 
 ![P7 displaying three student objects with their section and subject before and after an update, and rejecting an invalid average](set2/p7/screenshots/P7_OUTPUT.png)
+
+## How to Run P8
+
+From the repository root, run:
+
+```sh
+python set2/p8/p8_inheritance.py
+```
+
+On this Windows computer:
+
+```powershell
+py set2/p8/p8_inheritance.py
+```
+
+The demonstration runs automatically; no input is required. `Person` stores the common name and age. `Student` adds a section, while `Teacher` adds a subject. Both child classes call `super().__init__()` and override `introduce()`.
+
+The program places one object of each class in a single list and calls `introduce()` in a loop. Each object prints its own introduction, demonstrating polymorphism:
+
+```text
+P8 - Inheritance and Polymorphism
+Jit Lee S. Romero | IV-BSIT C
+
+I am Carlo Santos, 40 years old.
+I am Juan Cruz, 21 years old, a student from IV-BSIT C.
+I am Ana Reyes, 35 years old, a teacher of Python Programming.
+```
+
+The four-sentence comment at the bottom of [p8_inheritance.py](set2/p8/p8_inheritance.py) explains inheritance and polymorphism.
+
+### P8 Screenshot
+
+The screenshot shows the run command, author's name, and all three introductions:
+
+![P8 output showing the Person, Student, and Teacher introductions and the author's name](set2/p8/screenshots/P8_OUTPUT.png)
