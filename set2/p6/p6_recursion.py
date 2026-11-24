@@ -26,6 +26,26 @@ def fibonacci(n):
     return fibonacci(n - 1) + fibonacci(n - 2)
 
 
+# Base case: sum_numbers(0) returns 0.
+# Recursive call: add n to sum_numbers(n - 1).
+def sum_numbers(n):
+    if n < 0:
+        raise ValueError("The sum needs a non-negative integer.")
+    if n == 0:
+        return 0
+    return n + sum_numbers(n - 1)
+
+
+# Base cases: an empty list returns False; a matching first item returns True.
+# Recursive call: search the remaining items after removing the first item.
+def search(items, target):
+    if not items:
+        return False
+    if items[0] == target:
+        return True
+    return search(items[1:], target)
+
+
 def read_number(maximum):
     while True:
         try:
@@ -44,7 +64,9 @@ def main():
     while True:
         print("\n1. Factorial")
         print("2. Fibonacci")
-        print("3. Exit")
+        print("3. Sum from 1 to n")
+        print("4. Recursive search")
+        print("5. Exit")
         choice = input("Choose an option: ").strip()
 
         if choice == "1":
@@ -61,10 +83,21 @@ def main():
                 terms.append(fibonacci(position))
             print(f"First {number} terms, starting at F(0): {terms}")
         elif choice == "3":
+            number = read_number(100)
+            print(f"Sum from 1 to {number} = {sum_numbers(number)}")
+        elif choice == "4":
+            text = input("Enter items separated by commas: ")
+            items = [item.strip() for item in text.split(",") if item.strip()]
+            if len(items) > 100:
+                print("Enter at most 100 items.")
+                continue
+            target = input("Enter the target (case-sensitive): ").strip()
+            print(f"Found: {search(items, target)}")
+        elif choice == "5":
             print("Recursion toolkit closed.")
             return
         else:
-            print("Invalid choice. Enter 1, 2, or 3.")
+            print("Invalid choice. Enter a number from 1 to 5.")
 
 
 if __name__ == "__main__":
