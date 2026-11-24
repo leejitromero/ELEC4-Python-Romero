@@ -49,18 +49,23 @@ def load_records():
     return records
 
 
-def read_text(prompt):
+def read_text(prompt, current_value=None):
     while True:
         text = input(prompt).strip()
+        if not text and current_value is not None:
+            return current_value
         if text and "|" not in text:
             return text
         print("Enter a non-empty value without the | symbol.")
 
 
-def read_average():
+def read_average(current_value=None):
     while True:
         try:
-            average = float(input("General average (0-100): "))
+            text = input("General average (0-100): ").strip()
+            if not text and current_value is not None:
+                return current_value
+            average = float(text)
             if 0 <= average <= 100:
                 return average
             print("The average must be from 0 to 100.")
@@ -106,6 +111,82 @@ def add_student(records):
     print(f"Total saved records: {len(records)}")
 
 
+def show_student(record):
+    print(
+        f"{record['id']} | {record['name']} | "
+        f"{record['section']} | {record['average']:.2f}"
+    )
+
+
+def display_students(records):
+    if not records:
+        print("No student records yet.")
+    else:
+        print("\nStudent ID | Full name | Course/section | Average")
+        for record in records:
+            show_student(record)
+    print(f"Total records: {len(records)}")
+
+
+def find_student(records, student_id):
+    for record in records:
+        if record["id"].casefold() == student_id.casefold():
+            return record
+    return None
+
+
+def search_student(records):
+    student_id = read_text("Student ID to search: ")
+    record = find_student(records, student_id)
+    if record is None:
+        print("Student not found.")
+    else:
+        print("Student found:")
+        show_student(record)
+
+
+def save_records(records):
+    # Updating a record rewrites the file with the complete revised list.
+    with open(STUDENTS_FILE, "w", encoding="utf-8") as student_file:
+        for record in records:
+            student_file.write(
+                f"{record['id']}|{record['name']}|{record['section']}|{record['average']:.2f}\n"
+            )
+
+
+def update_student(records):
+    student_id = read_text("Student ID to update: ")
+    record = find_student(records, student_id)
+    if record is None:
+        print("Student not found.")
+        return
+
+    print("Current information:")
+    show_student(record)
+    print("Press Enter to keep a value. The student ID stays the same.")
+
+    updated_record = {
+        "id": record["id"],
+        "name": read_text("Full name: ", record["name"]),
+        "section": read_text("Course/section: ", record["section"]),
+        "average": read_average(record["average"]),
+    }
+
+    index = records.index(record)
+    revised_records = records.copy()
+    revised_records[index] = updated_record
+    try:
+        save_records(revised_records)
+    except (OSError, UnicodeError) as error:
+        print(f"Cannot save the update: {error}")
+        return
+
+    # Keep the in-memory list unchanged until saving succeeds.
+    records[index] = updated_record
+    print("Student updated and saved:")
+    show_student(updated_record)
+
+
 def main():
     print("P5 - Student Information File System")
     print("Jit Lee S. Romero | IV-BSIT C")
@@ -120,16 +201,33 @@ def main():
     print(f"Loaded records: {len(records)}")
     while True:
         print("\n1. Add and save a student")
-        print("2. Exit")
+        print("2. Display all students")
+        print("3. Search by student ID")
+        print("4. Update a student")
+        print("5. Save all records")
+        print("6. Exit")
         choice = input("Choose an option: ").strip()
 
         if choice == "1":
             add_student(records)
         elif choice == "2":
+            display_students(records)
+        elif choice == "3":
+            search_student(records)
+        elif choice == "4":
+            update_student(records)
+        elif choice == "5":
+            try:
+                save_records(records)
+            except (OSError, UnicodeError) as error:
+                print(f"Cannot save the records: {error}")
+            else:
+                print(f"All {len(records)} records saved.")
+        elif choice == "6":
             print("Program closed. Saved records remain in students.txt.")
             return
         else:
-            print("Invalid choice. Enter 1 or 2.")
+            print("Invalid choice. Enter a number from 1 to 6.")
 
 
 if __name__ == "__main__":
